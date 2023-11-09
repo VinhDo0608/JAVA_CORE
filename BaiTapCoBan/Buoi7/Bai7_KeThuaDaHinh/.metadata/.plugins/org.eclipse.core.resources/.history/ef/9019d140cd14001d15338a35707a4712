@@ -1,0 +1,5 @@
+package vn.devpro.bai7.interfacedemo;
+
+public interface test {
+
+}

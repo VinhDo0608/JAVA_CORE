@@ -1,0 +1,159 @@
+package vn.devpro.baitap3;
+
+import java.util.Scanner;
+
+public class baitap3 {
+	//cach tao ban sao du lieu: kieu_du_lieu name1 = name.clone();
+	static Scanner sc = new Scanner(System.in);
+	
+	static String[] name = {"Tung", "Cuc", "Truc", "Mai", "Truong", "Hung", "Binh", "Bich", "Phuong", "Trang", "Tu", "Huong"};
+	
+	static int[] kWh = {256, 1003, 564, 986, 1231, 721, 306, 562, 452, 908, 680, 850};
+
+	public static void main(String[] args) {
+		do {
+		System.out.println("\n=====CHUONG TRINH QUAN LY TIEN======");
+		System.out.println("Chon 1 chuc nang quan ly");
+		System.out.println("\t1. Hien thi danh sach ");
+		System.out.println("\t2. Hien thi 3 ho GD su dung dien nhieu nhat");
+		System.out.println("\t3. Hien thi cac ho GD co chu ho ten 'Truong'");
+		System.out.println("\t4. Sap xep danh sach theo ten");
+		System.out.println("\t5. Sap xep theo so kWh dien tang dan");
+		System.out.println("\t0. Thoat");
+		
+		System.out.print("Nhap lua chon cua ban: ");
+		int chon = Integer.parseInt(sc.nextLine());
+		switch(chon) {
+		case 1: 
+			hienThiDs(); 
+			break;
+		case 2:
+			hienThi3Gd();
+			break;
+		case 3:
+			hienThiGdTruong();
+			break;
+		case 4:
+			sapTheoTen();
+			System.out.println("Da sap xep theo danh sach, bam phim 1 de xem lai");
+			break;
+		case 5:
+			sapXepTheoKWh();
+			System.out.println("Da sap xep theo danh sach, bam phim 1 de xem lai");
+			break;
+		case 0:
+			System.out.println("Da thoat chuong trinh!");
+			System.exit(0);
+		default:
+			System.out.println("Lua chon khong hop le!");
+			}
+		}while(true);
+	}
+	
+	public static double tienDien(double kwh) {
+		double t = 0;
+		if (kwh <= 50) {
+			t = kwh * 1678;
+		}
+		else if (kwh <= 100) {
+			t = 50 * 1678 + (kwh - 50) * 1734;
+		}
+		else if (kwh <= 200) {
+			t = 50 * 1678 + 50 * 1734 + (kwh - 100) * 2014;
+		}
+		else if (kwh <= 300) {
+			t = 50 * 1678 + 50 * 1734 + 100 * 2014 + 
+					(kwh - 200) * 2536;
+		}
+		else if (kwh <= 400) {
+			t = 50 * 1678 + 50 * 1734 + 100 * 2014 + 
+					100 * 2536 + (kwh - 300) * 2834;
+		}
+		else { 
+			t = 50 * 1678 + 50 * 1734 + 100 * 2014 + 
+				100 * 2536 + 100 * 2834 + (kwh - 400) * 2927;
+		}
+		return t * 1.08;
+	}
+
+	private static void hienThiDs() {
+		System.out.println("\n---------DANH SACH HO GD SU DUNG DIEN---------");
+		System.out.printf("%3s %-7s %6s %15s%n",
+				"STT", "Ten", "So kWh", "Thanh Tien");
+		for (int i = 0; i < name.length; i++) {
+			System.out.printf("%3d %-7s %6d %,15.3f%n", i+1, name[i], kWh[i], tienDien(kWh[i]));
+		}
+	}
+
+	private static void hienThi3Gd() {
+		int[] kWh1 = kWh.clone();
+		String[] name1 = name.clone();
+		for (int i = 0; i < kWh1.length; i++) {
+			for (int j = 0; j < kWh1.length; j++) {
+				if (kWh1[i] > kWh1[j]) {
+					int tg = kWh1[i];
+					kWh1[i] = kWh1[j];
+					kWh1[j] = tg;
+					
+					String tmp = name1[i];
+					name1[i] = name1[j];
+					name1[j] = tmp;
+				} 
+			}
+		}
+		System.out.println("3 ho su dung nhieu kWh nhat la: " );
+		System.out.printf("%3s %-7s %6s %15s%n",
+				"STT", "Ten", "So kWh", "Thanh Tien");
+		for (int i = 0; i < 3; i++) {
+			System.out.printf("%3d %-7s %6d %,15.3f%n", i+1, name[i], kWh[i], tienDien(kWh[i]));
+		}
+	}
+		
+
+	private static void hienThiGdTruong() {
+		int dem = 0;
+		System.out.printf("%3s %-7s %6s %15s%n",
+				"STT", "Ten", "So kWh", "Thanh Tien");
+		for (int i = 0; i < name.length; i++) {
+			if(name[i].compareTo("Truong") == 0) {
+				System.out.printf("%3d %-7s %6d %,15.3f%n", i+1, name[i], kWh[i], tienDien(kWh[i]));
+				dem++;
+			}
+		}
+		if (dem == 0) {
+			System.out.println("Khong co ho gia dinh nao ten Truong!");
+		}
+	}
+
+	private static void sapTheoTen() {
+		for (int i = 0; i < name.length; i++) {
+			for (int j = 0; j < name.length; j++) {
+				if (name[i].compareTo(name[j]) < 0) {
+					int tg = kWh[i];
+					kWh[i] = kWh[j];
+					kWh[j] = tg;
+					
+					String tmp = name[i];
+					name[i] = name[j];
+					name[j] = tmp;
+				} 
+			}
+		}
+	}
+
+	private static void sapXepTheoKWh() {
+		for (int i = 0; i < kWh.length; i++) {
+			for (int j = 0; j < kWh.length; j++) {
+				if (kWh[i] < kWh[j]) {
+					int tg = kWh[i];
+					kWh[i] = kWh[j];
+					kWh[j] = tg;
+					
+					String tmp = name[i];
+					name[i] = name[j];
+					name[j] = tmp;
+				} 
+			}
+		}
+	}
+}

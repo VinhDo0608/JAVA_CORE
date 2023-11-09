@@ -1,0 +1,35 @@
+package vn.devpro.demo;
+
+import java.util.Scanner;
+
+public class CauTrucLap {
+	
+	public static int dem(long n) {
+		int count = 0;
+		while (n < 0) {
+			count++;
+			n/=10;
+		}
+		return count;
+	}
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static int age() {
+		int nam;
+		do {
+			System.out.println("Nhap nam sinh: ");
+			nam = sc.nextInt();
+		} while(nam > 2003 || nam < 1922);
+		return 2022 - nam;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		long n = 123456789;
+//		System.out.println("So chu so cua " + n + " la " + dem(n));
+		int t = age();
+		System.out.println("Ban " + t + " tuoi");
+	}
+
+}

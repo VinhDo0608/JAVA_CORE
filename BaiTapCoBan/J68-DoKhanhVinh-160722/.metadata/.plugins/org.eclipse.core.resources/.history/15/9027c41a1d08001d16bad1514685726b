@@ -1,0 +1,46 @@
+package vn.devpro.baitap2;
+
+import java.util.Scanner;
+
+public class baitoan1 {
+	public static void doc(String a) {
+		switch (a) {
+			case "1":
+				System.out.println("So mot");
+				break;
+			case "2":
+				System.out.println("So hai");
+				break;
+			case "3":
+				System.out.println("So ba");
+				break;
+			case "4":
+				System.out.println("So bon");
+				break;
+			case "5":
+				System.out.println("So nam");
+				break;
+			case "6":
+				System.out.println("So sau");
+				break;
+			case "7":
+				System.out.println("So bay");
+				break;
+			case "8":
+				System.out.println("So tam");
+				break;
+			case "9":
+				System.out.println("So chin");
+				break;
+			case "0":
+				System.out.println("So khong");
+				break;
+		}
+	}
+	
+	public static void init() {
+		System.out.print("Nhap so: ");
+		String a = new Scanner(System.in).nextLine();
+		doc(a);
+	}
+}

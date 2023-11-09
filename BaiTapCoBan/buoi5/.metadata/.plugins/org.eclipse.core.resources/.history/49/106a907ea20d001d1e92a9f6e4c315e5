@@ -1,0 +1,12 @@
+package vn.devpro.buoi5;
+
+import java.util.Calendar;
+
+public class cal_enum {
+
+	public static void main(String[] args) {
+		Calendar cal = Calendar.getInstance();
+		
+	}
+
+}

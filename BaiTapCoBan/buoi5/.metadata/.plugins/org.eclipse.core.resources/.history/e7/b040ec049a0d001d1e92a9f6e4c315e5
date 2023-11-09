@@ -1,0 +1,9 @@
+package vn.devpro.buoi5;
+
+public abstract class trenlop {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

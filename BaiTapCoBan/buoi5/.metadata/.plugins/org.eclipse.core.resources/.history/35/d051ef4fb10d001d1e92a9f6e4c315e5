@@ -1,0 +1,9 @@
+package vn.devpro.baitap3;
+
+public class Subject {
+	private int STT;
+	private int id;
+	private String tenHP;
+	private int soTC;
+	priavte
+}

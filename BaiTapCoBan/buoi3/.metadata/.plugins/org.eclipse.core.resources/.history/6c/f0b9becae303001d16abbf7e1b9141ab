@@ -1,0 +1,52 @@
+package vn.devpro.baitap2;
+
+import java.util.Scanner;
+
+public class baitoan1 {
+	public static String docSo(int num, String ans, String[] so, String[] so2) {
+        int ngan = num / 1000;
+        int tram = ( num / 100 ) % 10;
+        int chuc = (num / 10 ) % 10;
+        int donvi = num % 10;
+        int cs_2 = num % 100;
+        ans += so[ngan].substring(0,1).toUpperCase() + so[ngan].substring(1) + " ngàn ";
+        if ( cs_2 == 0 && tram != 0 || cs_2 != 0 )
+            ans += so[tram] + " trăm ";
+        if (cs_2 > 0 && cs_2 < 10)
+            ans += "linh " + so[donvi];
+        else if ( cs_2 >= 10 && cs_2 < 20) {
+            if (donvi == 0)
+                ans += "mười";
+            else
+                ans += "mười" + so[donvi];
+        }
+        else if (cs_2 >= 20) {
+            if (donvi == 0)
+                ans += so[chuc] +  " mươi";
+            else
+                ans += so2[chuc] +  " mươi " + so2[donvi];
+        }
+        return ans;
+    }
+
+    public static boolean check(String n) {
+        String ch = n.substring(0,1);
+        if (ch.equals("0") || ch.equals("-") || n.length() >= 5)
+            return false;
+        else
+            return true;
+    }
+
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        String[] so = {"không", "một","hai","ba","bốn","năm","sáu","bảy","tám","chín"};
+        String[] so2 = {"không", "mốt","hai","ba","bốn","năm","sáu","bảy","tám","chín"};
+        String ans = "", n = " ";
+        do {
+            System.out.println("Nhập số: ");
+            n = sc.nextLine();
+        } while (!check(n));
+        int num = Integer.valueOf(n);
+        System.out.println(docSo(num,ans,so,so2));
+}
+}

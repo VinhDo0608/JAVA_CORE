@@ -1,0 +1,207 @@
+package vn.devpro.buoi5;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+public abstract class trenlop {
+
+static Scanner sc = new Scanner(System.in);
+	
+	static String[] name = {"Tung", "Cuc", "Truc", "Mai", "Truong", "Hung", "Binh", "Bich", "Phuong", "Trang"};
+	static int[] tt1 = {100, 102, 205, 205, 205, 98, 108, 97, 99, 96};
+	static int[] tt2 = {110, 115, 225, 215, 225, 93, 118, 127, 119, 126};
+	static int[] tt3 = {98, 129, 195, 195, 195, 109, 128, 107, 118, 106};
+	
+	public static void main(String[] args) {
+		do {
+			System.out.println("\n=====CHUONG TRINH QUAN LY VAN DONG VIEN======");
+			System.out.println("Chon 1 chuc nang quan ly");
+			System.out.println("\t1. Hien thi danh sach van dong vien cung voi thanh tich trong 3 lan cu ta va tong thanh tich ");
+			System.out.println("\t2. Hien thi thong tin ve VDV co tong 3 lan cu ta (tong TT) cao nhat");
+			System.out.println("\t3. Hien thi 3 VDV co tong thanh tich cao nhat");
+			System.out.println("\t4. Sap xep danh sach VDV theo ten(luu y kem thanh tich)");
+			System.out.println("\t5. Hien thi danh sach VDV co ten bat dau bang chu 'T'");
+			System.out.println("\t6. Hien thi danh sach VDV ma ten co van 'an'");
+			System.out.println("\t7. Sap xep theo chieu dai ten tang dan");
+			System.out.println("\t8. Hien thi danh sach cac VDV co cung tong thanh tich va xep thu 2");
+			System.out.println("\t0. Thoat");
+			
+			System.out.print("Nhap lua chon cua ban: ");
+			int chon = Integer.parseInt(sc.nextLine());
+			switch(chon) {
+			case 1: 
+				hienThiDs(); 
+				break;
+			case 2:
+				hienThiMax();
+				break;
+			case 3:
+				hienThi3VDV();
+				break;
+			case 4:
+				sapTheoTen();
+				System.out.println("Da sap xep theo danh sach, bam phim 1 de xem lai");
+				break;
+			case 5:
+				hienThiT();
+				break;
+			case 6:
+				hienThiAn();
+				break;
+			case 7:
+				sapXepTang();
+				System.out.println("Da sap xep theo danh sach, bam phim 1 de xem lai");
+				break;
+			case 8:
+				hienThiNangCao();
+				break;
+			case 0:
+				System.out.println("Da thoat chuong trinh!");
+				System.exit(0);
+			default:
+				System.out.println("Lua chon khong hop le!");
+				}
+			}while(true);
+	}
+
+	private static void hienThiDs() {
+		System.out.println("\n---------DANH SACH VAN DONG VIEN---------");
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		for (int i = 0; i < name.length; i++) {
+			System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i+1, name[i], tt1[i], tt2[i], tt3[i], mangTTT()[i]);
+		}
+	}
+	
+	private static double[] mangTTT() {
+		double[] tTT = new double[10];
+		for (int i = 0; i < tTT.length; i++) {
+			tTT[i] = tt1[i] + tt2[i] + tt3[i];
+		}
+		return tTT;
+	}
+	
+	private static void hienThiMax() {
+		double max = mangTTT()[0];
+		for (int i = 0; i < mangTTT().length; i++) {
+			if (mangTTT()[i] > max) {
+				max = mangTTT()[i];	
+			}
+		}
+		System.out.println("Thong tin ve VDV co tong 3 lan cu ta cao nhat la: ");
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		for (int i = 0; i < mangTTT().length; i++) {
+			if (mangTTT()[i] == max) {
+				System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i+1, name[i], tt1[i], tt2[i], tt3[i], mangTTT()[i]);
+			}
+		}
+	}
+	
+	private static void hienThi3VDV() {
+		double[] mTTT = mangTTT();
+		for (int i = 0; i < mTTT.length; i++) {
+			for (int j = mTTT.length -1; j > i; j--) {
+				if (mTTT[j] > mTTT[j-1]) {
+					swap(tt1, j, j-1);
+					swap(tt2, j, j-1);
+					swap(tt3, j, j-1);
+					String tp = name[j];
+					name[j] = name[j-1];
+					name[j-1] = tp;
+					double tmp = mTTT[j];
+					mTTT[j] = mTTT[j-1];
+					mTTT[j-1] = tmp;
+				}
+			}
+		}
+		System.out.println("3 VDV co tong thanh tich cao nhat la: ");
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		for (int i = 0; i < 3; i++) {
+			System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i+1, name[i], tt1[i], tt2[i], tt3[i], mTTT[i]);
+		}
+	}
+	
+	public static void swap(int[] n, int a, int b) {
+		int tmp = n[a];
+		n[a] = n[b];
+		n[b] = tmp;
+	}
+
+	private static void sapTheoTen() {
+		for (int i = 0; i < name.length; i++) {
+			for (int j = 0; j < name.length; j++) {
+				if (name[i].compareTo(name[j]) < 0) {
+					swap(tt1, i, j);
+					swap(tt2, i, j);
+					swap(tt3, i, j);
+					String tmp = name[i];
+					name[i] = name[j];
+					name[j] = tmp;
+				} 
+			}
+		}
+	}
+
+	private static void hienThiT() {
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		for (int i = 0; i < name.length; i++) {
+				if (name[i].startsWith("T")) {
+					System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i+1, name[i], tt1[i], tt2[i], tt3[i], mangTTT()[i]);
+			} 
+		}
+	}
+
+	private static void hienThiAn() {
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		for (int i = 0; i < name.length; i++) {
+				if (name[i].contains("an")) {
+					System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i+1, name[i], tt1[i], tt2[i], tt3[i], mangTTT()[i]);
+			} 
+		}
+	}
+
+	private static void sapXepTang() {
+		for (int i = 0; i < name.length; i++) {
+			for (int j = 0; j < name.length; j++) {
+				if(name[i].length() < name[j].length()) {
+					String tg = name[i];
+					name[i] = name[j];
+					name[j] = tg;
+				}
+			}
+		}
+	}
+
+	private static void hienThiNangCao() {
+		System.out.println("DANH SACH CAC VDV DONG HANG 2 LA: ");
+		System.out.printf("%3s %-7s %6s %6s %6s %15s%n",
+				"STT", "Ten", "Lan 1", "Lan 2", "Lan 3", "Tong TT");
+		double[] mTTT = mangTTT();
+		for (int i = 0; i < mTTT.length; i++) {
+			for (int j = mTTT.length -1; j > i; j--) {
+				if (mTTT[j] > mTTT[j-1]) {
+					swap(tt1, j, j-1);
+					swap(tt2, j, j-1);
+					swap(tt3, j, j-1);
+					String tp = name[j];
+					name[j] = name[j-1];
+					name[j-1] = tp;
+					double tmp = mTTT[j];
+					mTTT[j] = mTTT[j-1];
+					mTTT[j-1] = tmp;
+				}
+			}
+		}
+		for (int i = 0; i < mTTT.length; i++) {
+			if (mTTT[i] == mTTT[1]) {
+				System.out.printf("%3d %-7s %6d %6d %6d %,15.3f%n", i, name[i], tt1[i], tt2[i], tt3[i], mTTT[i]);
+			}
+		}
+	}
+
+
+}

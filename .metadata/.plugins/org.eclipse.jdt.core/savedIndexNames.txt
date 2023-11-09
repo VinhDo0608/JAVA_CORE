@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+C:\Users\vinhg\Javacore\lan2\.metadata\.plugins\org.eclipse.jdt.core
+2882555242.index
+160705621.index
+485353043.index
+2250130128.index
+1189242126.index
+2128575829.index
+3111880727.index
+3464280193.index
+4216703828.index
+2123570371.index
+1865797976.index
+3995861330.index

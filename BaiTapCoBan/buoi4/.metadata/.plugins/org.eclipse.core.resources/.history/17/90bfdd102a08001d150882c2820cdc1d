@@ -1,0 +1,28 @@
+package vn.devpro.baitap3;
+
+import java.util.Scanner;
+
+public class baitoan2 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static long daoNguoc(long n) {
+		long m = 0;
+		long sum = 0;
+		while (n > 1) {
+			m = n / 10;
+			sum = sum*10 + m;
+		}
+		return sum;
+	}
+	
+	public static void init() {
+		long n = 0;
+		while(n > 10) {
+			System.out.println("Nhap n: ");
+			n = sc.nextLong();
+			System.out.println("So sau khi dao nguoc: " + daoNguoc(n));
+		}
+	}
+	
+}

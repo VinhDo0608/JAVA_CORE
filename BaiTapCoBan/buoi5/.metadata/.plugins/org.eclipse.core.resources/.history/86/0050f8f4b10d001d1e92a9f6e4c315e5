@@ -1,0 +1,32 @@
+package vn.devpro.baitap3;
+
+public class Subject {
+	private int code;
+	private String name;
+	private int credit;
+	private double mark;
+	
+	public void display() {
+		System.out.printf("%-11s %-25s %-10.1s %-7.2f%n", code, name, credit, mark);
+	}
+	
+	public double markByCredit() {
+		return this.credit * this.mark;
+	}
+	
+	public Subject() {
+		super();
+	}
+
+
+
+	public Subject(int id, String name, int credit, double mark) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.credit = credit;
+		this.mark = mark;
+	}
+	
+	
+}

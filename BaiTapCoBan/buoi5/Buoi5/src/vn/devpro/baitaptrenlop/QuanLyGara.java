@@ -1,0 +1,33 @@
+package vn.devpro.baitaptrenlop;
+
+import java.util.Scanner;
+
+public class QuanLyGara {
+
+	public static void main(String[] args) {
+		Car car = new Car(10, "Inova", "Toyota", "MPV", 30000, "VietNam");
+		do {
+			System.out.println("\n---------CHUONG TRINH QUAN LY XE HOI---------");
+			System.out.println("\t1. Hien thi thong tin xe");
+			System.out.println("\t2. Sua thong tin xe hoi");
+			System.out.println("\t0. Thoat");
+			System.out.print("Lua chon cua ban: ");
+			
+			Scanner sc = new Scanner(System.in);
+			
+			int chon = Integer.parseInt(sc.nextLine());
+			switch (chon) {
+			case 1:
+				System.out.println(car.toString());
+				break;
+			case 2: car.update(); break;
+			case 0: 
+				System.out.println("Thoat thanh cong!");
+				return;
+			default: System.out.println("Lua chon khong hop le!");
+				break;
+			}
+		} while (true);
+	}
+
+}

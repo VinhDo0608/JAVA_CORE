@@ -1,0 +1,56 @@
+package vn.devpro.bai2;
+
+import java.util.Scanner;
+
+public class QuanLyHocSinh {
+	
+	
+	static int mahs = 100001;
+	public static Scanner sc = new Scanner(System.in);
+	
+	// Ham nhap va tra ve doi tuong hoc sinh
+	
+	public static HocSinh nhap() {
+		HocSinh hs = new HocSinh();
+		hs.maHS = "HS" + mahs++;
+		System.out.print("Nhap ho dem: ");
+		hs.hoDem = sc.nextLine();
+		System.out.print("Nhap ten: ");
+		hs.ten = sc.nextLine();
+		System.out.print("Nhap ngay sinh (Ngay/Thang/nam): ");
+		hs.ngaySinh = sc.nextLine();
+		System.out.print("Nhap gioi tinh (Nam/Nu): ");
+		hs.gioiTinh = sc.nextLine();
+		System.out.print("Nhap diem toan: ");
+		hs.toan = Double.parseDouble(sc.nextLine());
+		System.out.print("Nhap diem van: ");
+		hs.van = Double.parseDouble(sc.nextLine());
+		System.out.print("Nhap diem anh");
+		hs.anh = Double.parseDouble(sc.nextLine());
+		
+		return hs;
+	}
+	
+	public static void hienThi(HocSinh hs) {
+		System.out.printf("%8s %-25s %10s %-9s %5.1f %5.1f %5.1f%n",
+				hs.maHS, hs.hoDem + " " + hs.ten, hs.ngaySinh, hs.gioiTinh, hs.toan, hs.van, hs.anh);
+	}
+	
+	public static void main(String[]args) {
+		System.out.println("Nhap thong tin hoc sinh thu nhat: ");
+		HocSinh hs1 = nhap();
+
+		
+		System.out.println("Nhap thong tin hoc sinh thu hai: ");
+		HocSinh hs2 = nhap();
+
+		
+		System.out.println("Nhap thong tin hoc sinh thu ba: ");
+		HocSinh hs3 = nhap();
+		
+		
+		hienThi(hs1);
+		hienThi(hs2);
+		hienThi(hs3);
+	}
+}

@@ -1,0 +1,16 @@
+package vn.devpro.bai2;
+
+import java.util.Scanner;
+
+public class HocSinh {
+	String maHS;
+	String hoDem;
+	String ten;
+	String ngaySinh;
+	String gioiTinh;
+	double toan, van , anh;
+	
+	public void nhap() {
+		
+	}
+}

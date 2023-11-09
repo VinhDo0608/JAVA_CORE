@@ -1,0 +1,15 @@
+package vn.devpro.buoi4;
+
+public class baitoan3 {
+	public static void xuatBCC() {
+		int n = 10;
+		for (int i = 1; i <= n; i++) {
+			int t = n*i;
+			System.out.println(n + " x " + i + " = " + t);
+		}
+	}
+	
+	public static void init() {
+		xuatBCC();
+	}
+}

@@ -1,0 +1,36 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class baitoan5 {
+	
+	static Scanner sc = new Scanner(System.in);
+
+	public static int fibo(int n) {
+        int f0 = 0;
+        int f1 = 1;
+        int fn = 1;
+ 
+        if (n < 0) {
+            return -1;
+        } else if (n == 0 || n == 1) {
+            return n;
+        } else {
+            for (int i = 2; i < n; i++) {
+                f0 = f1;
+                f1 = fn;
+                fn = f0 + f1;
+            }
+        }
+        return fn;
+    }
+	
+	public static void init() {
+		System.out.println("Nhap n: ");
+		int n = sc.nextInt();
+		System.out.printf("%d so dau tien day fibonacci: ",n);
+        for (int i = 0; i <= n; i++) {
+            System.out.print(fibo(i) + " ");
+        }
+	}
+}

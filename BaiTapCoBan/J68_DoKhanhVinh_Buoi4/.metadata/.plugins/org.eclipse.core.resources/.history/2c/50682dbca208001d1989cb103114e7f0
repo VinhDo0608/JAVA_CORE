@@ -1,0 +1,32 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class baitoan1 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static int checkPrime(int n) {
+		int count = 0;
+		if (n < 2) return 0;
+		for (int i = 1; i < n; i++) {
+			if (n%i==0) {
+				count++;
+			}
+		}
+		if (count == 2) {
+			return 1;
+		} else return 0;
+	}
+	
+	public static void init() {
+		System.out.print("Nhap n: ");
+		int n = sc.nextInt();
+		if(checkPrime(n) == 1) {
+			System.out.printf("%d la so nguyen to",n);
+		} else {
+			System.out.printf("%d khong phai so nguyen to",n);
+		}
+	}
+	
+}		

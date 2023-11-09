@@ -1,0 +1,12 @@
+package vn.devpro.buoi5;
+
+import java.util.Calendar;
+
+public abstract class trenlop {
+
+	public static void main(String[] args) {
+		Calendar cal = Calendar.getInstance();
+		
+	}
+
+}

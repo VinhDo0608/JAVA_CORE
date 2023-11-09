@@ -1,0 +1,7 @@
+package vn.devpro.baitap3;
+
+public class baitoan3 {
+	public static double tinhMu(int n) {
+		
+	}
+}

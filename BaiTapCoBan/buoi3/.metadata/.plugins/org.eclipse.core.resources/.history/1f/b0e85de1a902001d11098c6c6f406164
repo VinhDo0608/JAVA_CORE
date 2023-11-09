@@ -1,0 +1,19 @@
+package vn.devpro.baitap1;
+
+public class ptb2 {
+	
+	public static double ptb2(double a, double b, double c) {
+		double x = 0;
+		if (a == 0) {
+			x = -c/b;
+		} else if (b == 0) {
+			x = Math.sqrt(-c/a);
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

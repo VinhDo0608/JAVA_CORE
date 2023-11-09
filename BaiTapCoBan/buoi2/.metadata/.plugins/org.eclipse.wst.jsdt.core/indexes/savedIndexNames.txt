@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+C:\Users\vinhg\Javacore\lan2\buoi2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3654619860.index

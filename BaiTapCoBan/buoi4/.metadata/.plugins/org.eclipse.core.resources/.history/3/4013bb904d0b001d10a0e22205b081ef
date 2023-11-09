@@ -1,0 +1,14 @@
+package vn.devpro.bai4.stringexam;
+
+public class string_demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "Hello World";
+		System.out.println("Char at 0: " + str.charAt(0));
+		System.out.println("Index of 'o': " + str.indexOf('o'));
+		System.out.println("Index of 'orl': " + str.indexOf("orl"));
+		String str1 = str.concat(", I am very happy");
+		System.out.println("Str1 = " + str1);
+	}
+}

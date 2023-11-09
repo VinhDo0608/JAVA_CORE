@@ -1,0 +1,33 @@
+package vn.devpro.baitap2;
+
+import java.util.Scanner;
+
+public class baitoan3 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static double tinhTien(double a) {
+		double s = 0;
+		
+		if (a >= 1 && a <= 50){
+			s = a*14000;
+		} else if(a >= 51 && a <= 75) {
+			s = a*14000 - (a-50)*500;
+		} else if (a >= 76 && a <= 90) {
+			s = a*14000 - 25*500 - (a-25)*750;
+		} else if(a >= 41 && a <= 55) {
+			s = a*14000 - 25*500 - 25*750 - (a-25)*1000;	
+		} else if(a >= 55) {
+			s = a*14000 - 25*500 - 25*750 - (a-25)*1000 - (a-25)*1500;
+		} else {
+			System.out.println("So kg gao khong hop le!");
+		}
+		return s;
+	}
+	
+	public static void init() {
+		System.out.print("Nhap so gao muon mua: ");
+		double a = Double.parseDouble(sc.nextLine());
+		System.out.printf("So tien phai tra la: %.3f", tinhTien(a));
+	}
+}	

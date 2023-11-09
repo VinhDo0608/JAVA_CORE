@@ -1,0 +1,86 @@
+package vn.devpro.mang2chieu;
+
+import java.util.Iterator;
+
+public class MatTran {
+
+	static float[][] b = {
+			{1,2,3,4,5,6,7,8},
+			{9,8,7,6,5,4,3,2},
+			{2,2,3,3,4,4,5,5},
+			{3,4,5,1,2,3,6,7},
+			{1,2,3,6,5,7,4,3},
+			{9,7,5,3,2,4,7,40},
+	};
+	
+	public static void xuatMaTrix(float[][] b) {
+		for (int i = 0; i < b.length; i++) {
+			for (int j = 0; j < b[i].length; j++) {
+				System.out.printf("%8.2f", b[i][j]);
+			}
+			System.out.println("\n");
+		}
+	}
+	
+	public static float tong(float[] b) {
+		float sum = 0;
+		for (int i = 0; i < b.length; i++) {
+				sum += b[i];
+		}
+		return sum;
+	}
+	
+	public static void dongLonNhat(float[][] b) {
+		float tongMax = tong(b[0]);
+		int dongMax = 0;
+		for (int i = 0; i < b.length; i++) {
+			if (tong(b[i]) > tongMax) {
+				tongMax = tong(b[i]);
+				dongMax = i;
+			}
+		}
+		System.out.println("Dong co tong lon nhat la dong b[" + dongMax + "]");
+		System.out.println("Tong lon nhat la: " + tongMax);
+	}
+	
+	public static float tongCot(float[][] b, int cot) {
+		float sum = 0;
+		for (int i = 0; i < b.length; i++) {
+					sum+=b[i][cot]; 
+		}
+		return sum;
+	}
+	
+	public static void find(float[][] b) {
+		float tongMin = tongCot(b, 0);
+		float cotMin = 0;
+		for (int i = 0; i < b.length; i++) {
+			if(tongCot(b, i) < tongMin) {
+				tongMin = tongCot(b, i);
+				cotMin = i;
+			}
+		}
+		System.out.println("Dong co tong nho nhat la dong b[" + cotMin + "]");
+		System.out.println("Tong nho nhat la: " + tongMin);
+	}
+	
+	public static float[][] chuyenVi(float[][] b) {
+		float[][] a = new float[b[0].length][b.length];
+		for (int i = 0; i < b.length; i++) {
+			for (int j = 0; j < b[i].length; j++) {
+				a[j][i] = b[i][j];
+			}
+		}
+		return a;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Mang 2 chieu (ma tran) duoc khoi tao: ");
+		xuatMaTrix(b);
+		dongLonNhat(b);
+		find(b);
+		float[][] a = chuyenVi(b);
+		xuatMaTrix(a);
+	}
+
+}

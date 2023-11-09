@@ -1,0 +1,46 @@
+package vn.devpro.baitap3;
+
+import java.util.Scanner;
+
+public class QuanLySinhVien {
+	
+	static MarkTable table = new MarkTable(new Student("10001", "Bui Van An", "12/12/2002", "Computer Science"),
+										   new Subject[] {
+												   new Subject("0503111", "Lap trinh Java", 3, 8.7),
+												   new Subject("0503112", "Lap tring C", 3, 8.1),
+												   new Subject("0503112", "Lap trinh PHP", 2, 7.8),
+												   new Subject("0503114", "Lap tring C#", 3, 8.0),
+												   new Subject("0503115", "Co so du lieu", 4, 9.0)
+										   });
+
+	static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		do {
+			System.out.println("\n---------CHUONG TRINH QUAN LY DIEM---------");
+			System.out.println("Lua chon 1 chuc nang");
+			System.out.println("\t1. Hien thi bang diem");
+			System.out.println("\t2. Hien thi cac hoc phan diem duoi 6");
+			System.out.println("\t3. Sua thong tin sinh vien");
+			System.out.println("\t4. Sua thong tin hoc phan");
+			System.out.println("\t0. Thoat");
+			
+			System.out.print("Lua chon cua ban: ");
+			int chon = Integer.parseInt(sc.nextLine());
+			
+			switch (chon) {
+			case 1: table.display(); break;
+			case 2:	break;
+			case 3:	break;
+			case 4:	break;
+			case 0:
+				System.out.println("Thoat kho ung dung!");
+				return;
+			default:
+				System.out.println("Lua chon khong hop le!");
+			}
+		} while (true);
+
+	}
+
+}

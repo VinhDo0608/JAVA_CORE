@@ -1,0 +1,30 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class baitoan4 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static long giaiThua(long n) {
+		if(n == 1) return 1;
+		return n * giaiThua(n-1);
+	}
+	
+	public static void init() {
+		double S, T, x, LuyThua, GiaiThua, esp = 0.00001;
+		int i, Dau = -1;
+		System.out.print("Nhap x: ");
+		x = sc.nextDouble();
+		
+		GiaiThua = 1;
+		S = T = LuyThua = x;
+		for (i = 3; T > esp; i+=2 , Dau = -Dau) {
+			T = (LuyThua *= x * x) / (GiaiThua *= i * (i -1));
+			S += Dau * T;
+		}
+		
+		System.out.printf("\tCong thuc taylor: sin(%.2f) = %.4f%n",x,S);
+		System.out.printf("\tCong thuc sin() cua math.sin(%.2f) = %.4f",x,Math.sin(x));
+	}
+}

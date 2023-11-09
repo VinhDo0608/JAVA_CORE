@@ -1,0 +1,32 @@
+package vn.devpro.bai1_tongquanvejava.firsthello;
+
+
+import static java.lang.*;
+import java.util.Scanner;
+
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		
+		//bai 1:
+//		System.out.println("Nhap do dai day lon: ");
+//		double a = sc.nextDouble();
+//		System.out.println("Nhap do dai day nho: ");
+//		double b = sc.nextDouble();
+//		System.out.println("Nhap do dai chieu cao: ");
+//		double c = sc.nextDouble();
+//		double d = (a+b)*c/2;
+//		System.out.println("Dien tich hinh thang: "+d);
+		
+		//bai 2:
+		System.out.println("Nhap ban kinh hinh tron: ");
+		double r = sc.nextDouble();
+		double p = 2*Math.PI*r;
+		double s = Math.PI*r*r;
+		System.out.println("Chu vi hcn la: "+p);
+		System.out.println("Dien tich hcn la: "+s);
+	}
+}

@@ -1,0 +1,49 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class tren_lop {
+
+	static Scanner sc = new Scanner(System.in);
+	
+	
+	public static void nhapMang(float[] a, int n) {
+		System.out.println("Nhap mang" + n +" so thuc");
+		for (int i = 0; i < n; i++) {
+			System.out.printf("\ta[%d] = ",i);
+			a[i] = Float.parseFloat(sc.nextLine());
+		}
+	}
+	
+	public static void xuatMang(float[] a, int n) {
+		for (int i = 0; i < n; i++) {
+			System.out.print(a[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	public static int viTri(float[] a, double x) {
+		for(int i = 0; i < a.length; i++) {
+			if (x == a[i]) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n;
+		System.out.print("Nhap so phan tu mang: ");
+		n = Integer.parseInt(sc.nextLine());
+		float[] a = new float[n];
+		nhapMang(a, n);
+//		System.out.println("Mang vua nhap: ");
+//		xuatMang(a, n);
+		double x;
+		System.out.println("Nhap x: ");
+		x = Double.parseDouble(sc.nextLine());
+		System.out.println("Vi tri cua x trong mang a la: "+viTri(a, x) );
+		}
+
+}

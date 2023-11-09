@@ -1,0 +1,17 @@
+package vn.devpro.bai1_baitap6;
+
+public class QuanLyHocSinh {
+
+	public static void main(String[] args) {
+		// Khai bao va khoi tao 1 doi tuong hoc sinh
+		HocSinh hocSinh1 = new HocSinh();
+		System.out.println("Nhap du lieu cho doi tuong hoc sinh 1: ");
+		hocSinh1.nhap();//goi phuong thuc nhap
+		
+		
+		//hien thi thong tin hoc sinh 1
+		hocSinh1.hienThi();
+		
+	}
+
+}

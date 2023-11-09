@@ -1,0 +1,17 @@
+package vn.devpro.bai2;
+
+public class QuanLyHocSinh {
+	
+	
+	static int maHS = 100001;
+	
+	// Ham nhap va tra ve doi tuong hoc sinh
+	
+	public static HocSinh nhap() {
+		
+	}
+	
+	public static void main(String[]args) {
+		
+	}
+}

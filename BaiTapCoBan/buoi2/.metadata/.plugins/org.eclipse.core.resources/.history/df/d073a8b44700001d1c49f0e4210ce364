@@ -1,0 +1,25 @@
+package vn.devpro.bai2;
+
+import java.util.Scanner;
+
+public class bai2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a, b, c;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Nhap so nguyen a: ");
+		a = Integer.parseInt(sc.nextLine());
+		System.out.print("Nhap so nguyen b: ");
+		b = Integer.parseInt(sc.nextLine());
+		System.out.print("Nhap so nguyen c: ");
+		c = Integer.parseInt(sc.nextLine());
+		
+		int max = a;
+		max = (max < b) ? b : max;
+		max = (max < c) ? c : max;
+		
+		System.out.println("Max (" + a + " , " + b + " , " + c + " ) = " + max);
+	}
+
+}

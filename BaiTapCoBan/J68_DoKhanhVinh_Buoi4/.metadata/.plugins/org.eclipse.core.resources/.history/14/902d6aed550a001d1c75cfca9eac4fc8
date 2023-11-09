@@ -1,0 +1,22 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class baitoan5 {
+	
+	static Scanner sc = new Scanner(System.in);
+
+	public static int fibo(int n) {
+		if (n <= 2)	return 1;
+		else	return fibo(n-1) + fibo(n-2);
+    }
+	
+	public static void init() {
+		System.out.print("Nhap n: ");
+		int n = sc.nextInt();
+		System.out.printf("%d so dau tien day fibonacci: ",n);
+        for (int i = 0; i < n; i++) {
+            System.out.print(fibo(i) + " ");
+        }
+	}
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\vinhg\Javacore\lan2\buoi1\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2897724980.index
+305557089.index
+1526950916.index
+3346330869.index
+2818831221.index
+678990517.index

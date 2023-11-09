@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+C:\Users\vinhg\Javacore\lan2\buoi3\.metadata\.plugins\org.eclipse.jdt.core
+1039736905.index
+423147192.index
+2879892004.index
+1865797976.index
+305557089.index
+2745021930.index
+2336178139.index
+3654619860.index
+1865922338.index
+608437794.index

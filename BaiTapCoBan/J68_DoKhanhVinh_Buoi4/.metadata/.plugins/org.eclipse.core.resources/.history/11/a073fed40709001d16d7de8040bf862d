@@ -1,0 +1,32 @@
+package vn.devpro.buoi4;
+
+import java.util.Scanner;
+
+public class baitoan4 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static double tinhS(double x, double e) {
+		double s, t, lt, gt;
+		int i, d = -1;
+		gt = 1;
+		s = t = lt = x;
+		for (i = 3; t > e; i+=2, d = -d) {
+			t = (lt *= x * x)/ (gt *= i *(i - 1));
+			s += d*t;
+		}
+		return s;
+	}
+
+	public static void init() {
+		System.out.print("Nhap x:");
+		double x = Double.parseDouble(sc.nextLine());
+		double e;
+		do {
+		System.out.print("Nhap e: ");
+		e = sc.nextDouble();
+		} while (e <= 0);
+		
+		System.out.printf("\tKet qua la: %.7f%n", tinhS(x, e));
+	}
+}

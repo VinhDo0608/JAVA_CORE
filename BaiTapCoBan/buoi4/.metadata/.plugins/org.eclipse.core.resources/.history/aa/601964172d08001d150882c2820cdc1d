@@ -1,0 +1,38 @@
+package vn.devpro.baitap3;
+
+import java.util.Scanner;
+
+public class baitoan3 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public static long giaiThua(long n) {
+		if(n == 1) return 1;
+		return n * giaiThua(n-1);
+	}
+	
+	public static double tinhMu(double x, double e) {
+		double t = 1;
+		double a = 1;
+		int i = 1;
+		while (Math.abs(a) >= e) {
+			a = Math.pow(x, i) / giaiThua(i);
+			t += a;
+			i++;
+		}
+		return t;
+	}
+	
+	public static void init() {
+		System.out.print("Nhap x: ");
+		double x = sc.nextDouble();
+		double e;
+		do {
+		System.out.println("Nhap e: ");
+		e = sc.nextDouble();
+		tinhMu(x, e);
+		} while (e <= 0);
+		
+		System.out.printf("Ket qua la: %l", tinhMu(x, e));
+	}
+}

@@ -1,0 +1,78 @@
+package vn.devpro.baitaptrenlop;
+
+import java.util.Scanner;
+
+public class Car {
+	private int id;
+	private String brand;
+	private String manufacture;
+	private String style;
+	private double price;
+	private String origin;
+	
+	
+	public Car() {
+		super();
+	}
+	
+	
+	public Car(int id, String brand, String manufacture, String style, double price, String origin) {
+		super();
+		this.id = id;
+		this.brand = brand;
+		this.manufacture = manufacture;
+		this.style = style;
+		this.price = price;
+		this.origin = origin;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Car [id=" + id + ", brand=" + brand + ", manufacture=" + manufacture + ", style=" + style + ", price="
+				+ price + ", origin=" + origin + "]";
+	}
+	
+	public void update() {
+		do {
+			System.out.println("\n--------SUA THONG TIN XE HOI--------");
+			System.out.println("\t1. Sua nhan hieu");
+			System.out.println("\t2. Sua hang san xuat");
+			System.out.println("\t3. Sua kieu dang");
+			System.out.println("\t4. Sua gia tien");
+			System.out.println("\t5. Sua xuat xu");
+			System.out.println("\t0. Quay lai");
+			System.out.print("\tLua chon cua ban: ");
+			
+			Scanner sc = new Scanner(System.in);
+			
+			int chon = Integer.parseInt(sc.nextLine());
+			
+			switch (chon) {
+			case 1:
+				System.out.print("Nhap nhan hieu moi: ");
+				this.brand = sc.nextLine();
+				break;
+			case 2:
+				System.out.print("Nhap hang san xuat moi: ");
+				this.manufacture = sc.nextLine();
+				break;
+			case 3:
+				System.out.print("Nhap kieu dang moi: ");
+				this.style = sc.nextLine();
+				break;
+			case 4:
+				System.out.print("Nhap gia tien moi: ");
+				this.price = Double.parseDouble(sc.nextLine());
+				break;
+			case 5:
+				System.out.print("Nhap xuat su moi: ");
+				this.origin = sc.nextLine();
+				break;
+			case 0: return;
+			default: System.out.println("Lua chon khong hop le!");
+				break;
+			}
+		} while(true);
+	}
+}

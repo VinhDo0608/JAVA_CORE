@@ -1,0 +1,17 @@
+package vn.devpro.bai1_tongquanvejava.firsthello;
+
+
+import java.lang.*;
+import java.util.Scanner;
+
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Nhap so a: ");
+		int a = sc.nextInt();
+		System.out.println("%nSo vua nhap: "+ a);
+	}
+}

@@ -1,0 +1,7 @@
+package vn.devpro.baitap3;
+
+public class baitoan2 {
+	public static long daoNguoc(long n) {
+		
+	}
+}

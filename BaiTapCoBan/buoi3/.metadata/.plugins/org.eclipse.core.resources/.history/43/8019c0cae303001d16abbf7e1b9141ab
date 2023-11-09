@@ -1,0 +1,10 @@
+package vn.devpro.baitap2;
+
+import java.util.Scanner;
+
+public class baitoan3 {
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	
+}	
